@@ -1,0 +1,21 @@
+{
+  "name": "ai-stuff",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "format": "prettier . --write",
+    "start": "tsx src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "prettier": "^3.8.4",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}
