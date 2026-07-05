@@ -11,5 +11,12 @@
 ```
 OPENAI_BASE_URL=http://localhost:11434/v1
 OPENAI_API_KEY=ollama
-OPENAI_MODEL=llama3.2:3b
+OPENAI_MODEL=qwen3.5:4b
+EMBEDDINGS_MODEL=qwen3-embedding:0.6b
+```
+
+## Run
+
+```
+npx tsx ./src/index.ts
 ```
