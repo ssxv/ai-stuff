@@ -6,7 +6,7 @@
 - Intel Core Ultra 7 155H
 - Intel Arc integrated GPU
 - Intel AI Boost NPU
-- [OpenVINO Model Server](https://github.com/openvinotoolkit/model_server/releases) 2026.2.1 (`win_mp_on_py_off`)
+- [OpenVINO Model Server](https://github.com/openvinotoolkit/model_server/releases) 2026.2.1 (`win_mp_on_py_on`)
 
 ## Install OVMS
 
@@ -14,12 +14,14 @@ Download the Windows archive for OVMS and extract it.
 
 Example:
 
-    C:\Users\satyendras\AppData\Local\ovms\
+    C:\Users\satyendras\ovms\
         ovms.exe
 
 Verify:
 
 ```powershell
+cd C:\Users\satyendras\ovms
+.\setupvars.ps1
 .\ovms.exe --version
 ```
 
@@ -45,7 +47,7 @@ Restart PowerShell afterwards.
 ## Pull the model
 
 ```powershell
-ovms.exe --pull --source_model OpenVINO/gemma-3-4b-it-int4-cw-ov --model_repository_path "C:\Users\satyendras\.ovms\models" --model_name gemma-3-4b-it-int4-cw-ov --task text_generation --target_device NPU
+.\ovms.exe --pull --source_model OpenVINO/gemma-3-4b-it-int4-cw-ov --model_repository_path "C:\Users\satyendras\.ovms\models" --model_name gemma-3-4b-it-int4-cw-ov --task text_generation --target_device NPU
 ```
 
 The first download is about 3.4 GB.
@@ -62,7 +64,7 @@ OVMS creates:
 ## Start OVMS
 
 ```powershell
-ovms.exe --rest_port 8000 --model_repository_path "C:\Users\satyendras\.ovms\models" --task text_generation --source_model OpenVINO/gemma-3-4b-it-int4-cw-ov --target_device NPU
+.\ovms.exe --rest_port 8000 --model_repository_path "C:\Users\satyendras\.ovms\models" --task text_generation --source_model OpenVINO/gemma-3-4b-it-int4-cw-ov --target_device NPU
 ```
 
 ## Verify model status
