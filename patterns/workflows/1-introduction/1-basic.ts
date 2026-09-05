@@ -4,7 +4,7 @@ import OpenAI from "openai";
 config();
 
 const client = new OpenAI({
-  baseURL: process.env.LLM_BASE_URL
+  baseURL: process.env.OPENAI_BASE_URL
 });
 
 const startMs = performance.now();

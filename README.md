@@ -11,8 +11,8 @@
 ```
 OPENAI_BASE_URL=http://localhost:11434/v1
 OPENAI_API_KEY=ollama
-OPENAI_MODEL=qwen3.5:4b
-EMBEDDINGS_MODEL=qwen3-embedding:0.6b
+LLM_MODEL=qwen3.5:4b
+EMBD_MODEL=qwen3-embedding:0.6b
 ```
 
 ## Run
@@ -20,7 +20,7 @@ EMBEDDINGS_MODEL=qwen3-embedding:0.6b
 Run any file in the project with `npx tsx <path>`:
 
 ```
-npx tsx ./src/index.ts
+npx tsx ./patterns/workflows/1-introduction/1-basic.ts
 ```
 
 For example, to run one of the workflow examples:
@@ -40,5 +40,6 @@ Typical OVMS-compatible environment values look like:
 ```
 OPENAI_BASE_URL=http://localhost:8000/v3
 OPENAI_API_KEY=unused
-OPENAI_MODEL=OpenVINO/gemma-3-4b-it-int4-cw-ov
+LLM_MODEL=OpenVINO/gemma-3-4b-it-int4-cw-ov
+EMBD_MODEL=OpenVINO/Qwen3-Embedding-0.6B-int8-ov
 ```

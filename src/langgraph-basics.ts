@@ -27,7 +27,7 @@ config();
 const model = new ChatOpenAI({
   configuration: { baseURL: process.env.OPENAI_BASE_URL },
   apiKey: process.env.OPENAI_API_KEY,
-  model: process.env.OPENAI_MODEL
+  model: process.env.LLM_MODEL
 });
 
 // =============================================================================

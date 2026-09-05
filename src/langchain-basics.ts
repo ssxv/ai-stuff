@@ -24,7 +24,7 @@ const model = new ChatOpenAI({
     baseURL: process.env.OPENAI_BASE_URL
   },
   apiKey: process.env.OPENAI_API_KEY,
-  model: process.env.OPENAI_MODEL
+  model: process.env.LLM_MODEL
 });
 
 // Simple invocation (like your existing code, but through LangChain)

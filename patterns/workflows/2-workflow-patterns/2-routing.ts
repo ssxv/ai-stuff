@@ -8,7 +8,7 @@ import { log } from "../shared/logger.js";
 config();
 
 const client = new OpenAI({
-  baseURL: process.env.LLM_BASE_URL
+  baseURL: process.env.OPENAI_BASE_URL
 });
 
 const model = process.env.LLM_MODEL!;

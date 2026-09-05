@@ -13,7 +13,7 @@ import { z } from "zod";
 config();
 
 const client = new OpenAI({
-  baseURL: process.env.LLM_BASE_URL
+  baseURL: process.env.OPENAI_BASE_URL
 });
 
 // docs: https://platform.openai.com/docs/guides/function-calling
