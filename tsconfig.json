@@ -1,5 +1,5 @@
 {
-  "include": ["./patterns", "./agents", "./frameworks"],
+  "include": ["./patterns", "./agents", "./frameworks", "./knowledge-extraction-pipeline"],
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",

@@ -12,7 +12,7 @@ import type {
   ChatCompletionTool
 } from "openai/resources/chat/completions";
 
-import { log } from "../patterns/shared/logger.js";
+import { log } from "../util/logger.js";
 
 config();
 
