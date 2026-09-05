@@ -20,13 +20,13 @@ EMBD_MODEL=qwen3-embedding:0.6b
 Run any file in the project with `npx tsx <path>`:
 
 ```
-npx tsx ./patterns/workflows/1-introduction/1-basic.ts
+npx tsx ./patterns/1-introduction/1-basic.ts
 ```
 
 For example, to run one of the workflow examples:
 
 ```
-npx tsx ./patterns/workflows/1-introduction/4-retrieval.ts
+npx tsx ./patterns/1-introduction/4-retrieval.ts
 ```
 
 ## Alternative backend: OpenVINO Model Server (OVMS)
