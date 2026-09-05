@@ -1,10 +1,9 @@
 {
-  "include": ["./patterns", "./agents", "./src"],
+  "include": ["./patterns", "./agents", "./frameworks"],
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "outDir": "./dist",
     "rootDir": ".",
     "strict": true
   }
