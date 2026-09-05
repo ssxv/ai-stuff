@@ -1,10 +1,8 @@
 {
   "name": "ai-stuff",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "Hands-on TypeScript examples for building LLM-powered apps and agent workflows with the OpenAI SDK, LangChain, and LangGraph, runnable against local models via Ollama or OpenVINO Model Server.",
   "scripts": {
-    "build": "tsc",
     "format": "prettier . --write"
   },
   "keywords": [],
