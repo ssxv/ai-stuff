@@ -155,3 +155,77 @@ const client = new OpenAI({
   baseURL: "http://localhost:8000/v3"
 });
 ```
+
+## Serving multiple models
+
+So far OVMS has served a single model started directly from the CLI. To serve
+several models at once (for example a chat model plus an embeddings model), pull
+each model into the repository and start OVMS from a shared `config.json`.
+
+### Pull an embeddings model
+
+Add an embeddings model alongside the chat model. Note the extra `--pooling LAST`
+flag and `--task embeddings`, which are required for embedding models:
+
+```powershell
+.\ovms.exe --pull `
+  --source_model OpenVINO/Qwen3-Embedding-0.6B-int8-ov `
+  --pooling LAST `
+  --model_repository_path "C:\Users\satyendras\.ovms\models" `
+  --model_name Qwen3-Embedding-0.6B-int8-ov `
+  --task embeddings `
+  --target_device GPU
+```
+
+### Point OVMS at the model repository
+
+Set the repository path once as an environment variable so you don't have to
+repeat it on every command:
+
+```powershell
+setx OVMS_MODEL_REPOSITORY_PATH "C:\Users\satyendras\.ovms\models"
+```
+
+Restart PowerShell afterwards for the variable to take effect.
+
+### Create `config.json`
+
+Create `config.json` in the model repository. Each entry maps a served model
+name to its `base_path` on disk and target device. Note that JSON requires
+backslashes in Windows paths to be escaped (`\\`):
+
+```json
+{
+  "model_config_list": [
+    {
+      "config": {
+        "name": "OpenVINO/gemma-3-4b-it-int4-cw-ov",
+        "base_path": "C:\\Users\\satyendras\\.ovms\\models\\OpenVINO\\gemma-3-4b-it-int4-cw-ov",
+        "target_device": "GPU"
+      }
+    },
+    {
+      "config": {
+        "name": "OpenVINO/Qwen3-Embedding-0.6B-int8-ov",
+        "base_path": "C:\\Users\\satyendras\\.ovms\\models\\OpenVINO\\Qwen3-Embedding-0.6B-int8-ov",
+        "target_device": "GPU"
+      }
+    }
+  ]
+}
+```
+
+### Start OVMS with the config
+
+Start the server pointed at the config instead of a single `--source_model`:
+
+```powershell
+.\ovms.exe --config_path "C:\Users\satyendras\.ovms\models\config.json" --rest_port 8000
+```
+
+Both models are now served on the same port. Verify them with:
+
+```powershell
+Invoke-RestMethod http://localhost:8000/v1/config
+Invoke-RestMethod http://localhost:8000/v3/models
+```
