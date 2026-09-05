@@ -1,5 +1,5 @@
 {
-  "include": ["./patterns"],
+  "include": ["./patterns", "./agents", "./src"],
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",
