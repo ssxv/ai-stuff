@@ -3,7 +3,7 @@ import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod.js";
 import { z } from "zod";
 
-import { log } from "../shared/logger.js";
+import { log } from "../../util/logger.js";
 
 config();
 
